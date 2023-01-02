@@ -18,7 +18,7 @@ public class Main {
         notebooks.add(notebook2);
         notebooks.add(notebook3);
         Map<Integer, String> map = new HashMap<>();
-        Set<String> Laptops = new HashSet<>();
+        Set<String> filtredLaptops = new HashSet<>();
         map.put(1, "RAM");
         map.put(2, "screenSize");
         map.put(3, "price");
@@ -27,7 +27,7 @@ public class Main {
         map.put(6, "storageCapacity");
         Scanner scanner = new Scanner(System.in);
         Map<String, Object> criteria = new HashMap<>();
-        System.out.println("Enter the number that corresponds to the desired criterion : " + map);
+        System.out.println("Enter the number that corresponds to the desired criteries : " + map);
         int criteries = scanner.nextInt();
         scanner.nextLine();
 
@@ -71,7 +71,6 @@ public class Main {
         }
 
         for (Notebooks notebook : notebooks) {
-
             boolean isMatching = false;
             for (Map.Entry<String, Object> entry : criteria.entrySet()) {
 
@@ -104,12 +103,12 @@ public class Main {
                 }
             }
 
-            if (isMatching) Laptops.add(notebook.getBrand());
+            if (isMatching) filtredLaptops.add(notebook.getBrand());
 
         }
-        if (!Laptops.isEmpty())
-            System.out.println(" With chosen criteria we have next(s) models of notebook(s):" + Laptops);
-        if (Laptops.isEmpty()) System.out.println("Sorry, we have not such Laptops.");
+        if (!filtredLaptops.isEmpty())
+            System.out.println(" With chosen criteria we have next(s) models of notebook(s):" + filtredLaptops);
+        if (filtredLaptops.isEmpty()) System.out.println("Sorry, we have not such Laptops.");
     }
 }
 
