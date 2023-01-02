@@ -31,7 +31,6 @@ public class Main {
         int criteries = scanner.nextInt();
         scanner.nextLine();
 
-
         switch (criteries) {
             case 1:
                 System.out.println("Choose the RAM(gigabytes) from the list: 16, 32, 64");
@@ -69,42 +68,33 @@ public class Main {
                 System.out.println("Invalid input. Please enter a valid number.");
                 break;
         }
-
         for (Notebooks notebook : notebooks) {
             boolean isMatching = false;
-            for (Map.Entry<String, Object> entry : criteria.entrySet()) {
 
+            for (Map.Entry<String, Object> entry : criteria.entrySet()) {
                 String criter = entry.getKey();
                 Object value = entry.getValue();
 
                 if (criter.equals("RAM") && (notebook.getRAM().equals(value))) {
                     isMatching = true;
-
                 }
                 if (criter.equals("screenSize") && (notebook.getScreenSize().equals(value))) {
                     isMatching = true;
-
                 }
-
                 if (criter.equals("price") && (notebook.getPrice().equals(value))) {
                     isMatching = true;
-
                 }
                 if (criter.equals("operatingSystem") && (notebook.getOperatingSystem().equals(value))) {
                     isMatching = true;
-
                 }
                 if (criter.equals("processorModel") && (notebook.getProcessorModel().equals(value))) {
                     isMatching = true;
-
                 }
                 if (criter.equals("storageCapacity") && (notebook.getStorageCapacity().equals(value))) {
                     isMatching = true;
                 }
             }
-
             if (isMatching) filtredLaptops.add(notebook.getBrand());
-
         }
         if (!filtredLaptops.isEmpty())
             System.out.println(" With chosen criteria we have next(s) models of notebook(s):" + filtredLaptops);
